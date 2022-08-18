@@ -15,9 +15,7 @@ router.get('/products-test', productsTest)
 
 //Rutas de register
 router.get('/register', registerController)
-router.post(
-    '/register',
-    passport.authenticate("register", { failureRedirect: "/Error-sign" }), registerPostController)
+router.post('/register', passport.authenticate("register", { failureRedirect: "/api/Error-sign" }), registerPostController)
 
 //Rutas Login-Loguot
 router.get('/login', loginController)

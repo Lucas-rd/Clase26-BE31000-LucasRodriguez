@@ -49,6 +49,8 @@ app.use(
     saveUninitialized: false,
     rolling: true,
     cookie: {
+      httpOnly : false,
+      secure : false,
       maxAge: 120000,
     },
   })
@@ -63,22 +65,25 @@ app.use(passport.session());
 // Estrategia de registro
 const registerStrategy = new LocalStrategy(
   { passReqToCallback: true },
-  async (req, email, password, done) => {
+  async (req, username, password, done) => {
       try {
           console.log("---------------------CONSOLE LOG DESDE ESTRATEGIA")
-          const existingUser = await User.findOne({ email })
+
+          const existingUser = await User.findOne({ username })
 
           if(existingUser){
               return done(null, null)
           }
 
           const newUser = {
-              email: email,
+              username,
               password: hashPassword(password),
               firstName: req.body.firstName,
-              lastName: req.body.lastName
+              lastName: req.body.lastName,
+              email: req.body.email
           }
           console.log("++++++++++++++++++NEWUSER",newUser)
+
           const createdUser = await User.create(newUser)
           done(null, createdUser)
 
@@ -91,9 +96,9 @@ const registerStrategy = new LocalStrategy(
 
 // Estrategia de logeo
 const loginStrategy = new LocalStrategy(
-  async (email, password, done) => {
+  async (username, password, done) => {
       try {
-          const user = await User.findOne({ email })
+          const user = await User.findOne({ username })
           console.log("------------------------USER", user)
           if(!user || !isValidPassword(password, user.password)){
               return done(null, null)
