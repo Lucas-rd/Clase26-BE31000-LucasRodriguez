@@ -1,0 +1,50 @@
+[
+	{
+		"title": "Mazo commander 1",
+		"price": 100,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_847134-MLA49546578890_042022-O.webp",
+		"id": 1
+	},
+	{
+		"title": "Mazo comander 2",
+		"price": 200,
+		"thumbnail": "https://www.elrincondemagic.com/WebRoot/StoreLES/Shops/64576138/620A/2932/5562/8124/B02B/0A0C/6D0D/296B/Mazo_NEO_Abrochate_Cinturon.png",
+		"id": 2
+	},
+	{
+		"title": "Mazo comander 3",
+		"price": 300,
+		"thumbnail": "https://media.magic.wizards.com/en_PaLTnONM9E.png",
+		"id": 3
+	},
+	{
+		"title": "Mazo Comander 4",
+		"price": "400",
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_847134-MLA49546578890_042022-O.webp",
+		"id": 4
+	},
+	{
+		"title": "Mazo Comander 5",
+		"price": "500",
+		"thumbnail": "https://www.hadouken.com.ar/108519-thickbox_default/mazo-magic-kamigawa-neon-dynasty-commander-buckle-up.jpg",
+		"id": 5
+	},
+	{
+		"title": "mazo 6",
+		"price": "600",
+		"thumbnail": "123",
+		"id": 6
+	},
+	{
+		"title": "mazo 6",
+		"price": "600",
+		"thumbnail": "asdasd",
+		"id": 7
+	},
+	{
+		"title": "mazo 6",
+		"price": "600",
+		"thumbnail": "https://www.hadouken.com.ar/108519-thickbox_default/mazo-magic-kamigawa-neon-dynasty-commander-buckle-up.jpg",
+		"id": 8
+	}
+]

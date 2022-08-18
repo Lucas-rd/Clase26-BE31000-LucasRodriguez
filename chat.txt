@@ -1,0 +1,22 @@
+[
+	{
+		"userEmail": "lucas_kpo@hotmail.com [28/6/2022 23:38:12]",
+		"message": "Aloha!"
+	},
+	{
+		"userEmail": "juan_kpomaximo@hotmail.com [28/6/2022 23:38:12]",
+		"message": "Aloha par avos bro!"
+	},
+	{
+		"userEmail": "lucas_qda@hotmail.com [28/6/2022 23:37:00]",
+		"message": "holiss!"
+	},
+	{
+		"userEmail": "baptis@asd.com [28/6/2022 23:39:30]",
+		"message": "Buenas noches a todos!"
+	},
+	{
+		"userEmail": "asd@123.com [28/6/2022 23:39:31]",
+		"message": "Byes!"
+	}
+]
