@@ -1,10 +1,12 @@
 import { productDAO } from "../DAO/productDAO.js"
 
 const getAllProductsController = async (req, res) => {
-    const { user } = req.session
+    // const { user } = req.session
+    //Este req.user viene de la estrategia definida de passport.local y ya no hace falta recurrir al req.session
+    const { email } = req.user
     const products = await productDAO.getAll()
 
-    res.render("plantillaProducts.ejs", { user, products })
+    res.render("plantillaProducts.ejs", { email, products })
 }
 
 const getOneProductController = async (req, res) => {

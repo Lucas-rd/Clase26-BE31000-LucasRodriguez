@@ -5,11 +5,13 @@ const registerController = async(req, res) =>{
 }
 
 const registerPostController = async(req, res) =>{
-    req.session.user = req.body.email
-    console.log("**********CONSOLE LOG controler register POST***********")
-    
+    req.session.user = req.body.username    
 
-    res.redirect("/api/products/all")
+    res.redirect("/api/login")
 }
 
-export { registerController, registerPostController }
+const registerErrorController = async(req, res) =>{
+    res.render('plantillaRegisterError')
+}
+
+export { registerController, registerPostController, registerErrorController }

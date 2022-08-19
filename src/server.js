@@ -67,8 +67,6 @@ const registerStrategy = new LocalStrategy(
   { passReqToCallback: true },
   async (req, username, password, done) => {
       try {
-          console.log("---------------------CONSOLE LOG DESDE ESTRATEGIA")
-
           const existingUser = await User.findOne({ username })
 
           if(existingUser){
@@ -82,7 +80,7 @@ const registerStrategy = new LocalStrategy(
               lastName: req.body.lastName,
               email: req.body.email
           }
-          console.log("++++++++++++++++++NEWUSER",newUser)
+          console.log("Nuevo usuario creado: ",newUser)
 
           const createdUser = await User.create(newUser)
           done(null, createdUser)
@@ -99,11 +97,12 @@ const loginStrategy = new LocalStrategy(
   async (username, password, done) => {
       try {
           const user = await User.findOne({ username })
-          console.log("------------------------USER", user)
           if(!user || !isValidPassword(password, user.password)){
               return done(null, null)
           }
 
+          done(null, user)
+          
       } catch (error) {
           console.log("Error login", err);
           done("Error login", null);

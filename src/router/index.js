@@ -3,8 +3,8 @@ import { Router } from "express";
 import { productsTest } from "../controller/testController.js";
 import { getAllProductsController,getOneProductController, postNewProduct } from "../controller/productsController.js";
 import { cartControllerGet, cartControllerPost, cartControllerProductsPost, cartControllerDelete, cartControllerProductDelete } from "../controller/cartController.js";
-import { loginController, loginPostController, logOutController  } from "../controller/loginController.js";
-import { registerController, registerPostController } from "../controller/registerController.js";
+import { loginController, loginPostController, logOutController, loginErrorController  } from "../controller/loginController.js";
+import { registerController, registerPostController, registerErrorController } from "../controller/registerController.js";
 import { logginMiddleware } from "../middleware/logginMiddleware.js";
 
 
@@ -15,12 +15,14 @@ router.get('/products-test', productsTest)
 
 //Rutas de register
 router.get('/register', registerController)
-router.post('/register', passport.authenticate("register", { failureRedirect: "/api/Error-sign" }), registerPostController)
+router.post('/register', passport.authenticate("register", { failureRedirect: "/api/registerError" }), registerPostController)
+router.get('/registerError', registerErrorController)
 
 //Rutas Login-Loguot
 router.get('/login', loginController)
-router.post('/login', loginPostController )
+router.post('/login', passport.authenticate("login", { failureRedirect: "/api/loginError" }), loginPostController )
 router.get('/logout', logginMiddleware, logOutController)
+router.get('/loginError', loginErrorController)
 
 //Rutas de Producto
 router.get('/products/all', logginMiddleware, getAllProductsController)
